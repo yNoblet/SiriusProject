@@ -4,8 +4,11 @@
     <modules>
       <moduleElements xsi:type="angular:ESClass" name="ClassA" abstract="true">
         <fields name="a" type=""/>
-        <fields name="b"/>
         <functions name="c"/>
+      </moduleElements>
+      <moduleElements xsi:type="angular:ESClass" name="New Class">
+        <fields name="FieldName"/>
+        <functions name="FunctionName"/>
       </moduleElements>
     </modules>
   </folders>
