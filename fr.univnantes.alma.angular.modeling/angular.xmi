@@ -1,45 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<angular:Project
-    xmi:version="2.0"
-    xmlns:xmi="http://www.omg.org/XMI"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:angular="http://www.univnantes.fr/alma/angular"
-    xsi:schemaLocation="http://www.univnantes.fr/alma/angular ../fr.univnantes.alma.angular/model/angular.ecore">
+<angular:Project xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:angular="http://www.univnantes.fr/alma/angular" xsi:schemaLocation="http://www.univnantes.fr/alma/angular ../fr.univnantes.alma.angular/model/angular.ecore">
   <folders>
     <modules>
-      <moduleElements
-          xsi:type="angular:ESClass"
-          name="ClassA"
-          abstract="true">
-        <fields
-            name="a"
-            type=""/>
-        <functions
-            name="c"/>
+      <moduleElements xsi:type="angular:ESClass" name="ClassA" extends="//@folders.0/@modules.0/@moduleElements.2" abstract="true">
+        <functions name="c"/>
       </moduleElements>
-      <moduleElements
-          xsi:type="angular:ESClass"
-          name="New Class">
-        <fields
-            name="jhgj"
-            type=""/>
-        <functions
-            name="FunctionName"
-            type="">
-          <parameters
-              name="a"
-              type="a"/>
-          <parameters
-              name="b"
-              type="b"/>
+      <moduleElements xsi:type="angular:ESClass" name="New Class">
+        <fields name="jhgj" type=""/>
+        <functions name="FunctionName" type="">
+          <parameters name="a" type="a"/>
+          <parameters name="b" type="b"/>
         </functions>
       </moduleElements>
-      <moduleElements
-          xsi:type="angular:ESClass"
-          name="New Class">
-        <fields
-            name="FieldName"/>
+      <moduleElements xsi:type="angular:ESClass" name="New Class" extends="//@folders.0/@modules.0/@moduleElements.1 //@folders.0/@modules.0/@moduleElements.3">
+        <fields name="FieldName"/>
       </moduleElements>
+      <moduleElements xsi:type="angular:ESClass" name="New Class"/>
     </modules>
   </folders>
 </angular:Project>
