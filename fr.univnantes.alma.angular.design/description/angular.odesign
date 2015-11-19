@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="angular" version="10.1.0.201507271600">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:description_2="http://www.eclipse.org/sirius/table/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="angular" version="10.1.0.201507271600">
   <ownedViewpoints name="Architecture" modelFileExtension="xmi">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Class Diagram" domainClass="angular.Module" enablePopupBars="true">
       <metamodel href="../../fr.univnantes.alma.angular/model/angular.ecore#/"/>
@@ -12,7 +12,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <containerMappings name="CD_Class" labelDirectEdit="//@ownedViewpoints[name='Architecture']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Classifier%20Direct%20Edit']" semanticCandidatesExpression="feature:moduleElements" domainClass="angular.ESClass" childrenPresentation="List">
+        <containerMappings name="CD_Class" labelDirectEdit="//@ownedViewpoints[name='Architecture']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Classifier%20Direct%20Edit']" semanticCandidatesExpression="feature:moduleElements" createElements="false" domainClass="angular.ESClass" childrenPresentation="List">
           <subNodeMappings name="Field" labelDirectEdit="//@ownedViewpoints[name='Architecture']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='fieldEdit']" semanticCandidatesExpression="feature:fields" domainClass="angular.Field">
             <style xsi:type="style:SquareDescription" showIcon="false" labelExpression="aql:self.name+' : '+self.type" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -194,12 +194,20 @@
     </ownedRepresentations>
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Component Diagram" domainClass="angular.Folder" enablePopupBars="true">
       <defaultLayer name="Default">
+        <edgeMappings name="Dependencies" sourceMapping="//@ownedViewpoints[name='Architecture']/@ownedRepresentations[name='Component%20Diagram']/@defaultLayer/@containerMappings[name='Module']/@subContainerMappings[name='Directives']/@subNodeMappings[name='DirController'] //@ownedViewpoints[name='Architecture']/@ownedRepresentations[name='Component%20Diagram']/@defaultLayer/@containerMappings[name='Module']/@subNodeMappings[name='Controllers'] //@ownedViewpoints[name='Architecture']/@ownedRepresentations[name='Component%20Diagram']/@defaultLayer/@containerMappings[name='Module']/@subContainerMappings[name='Directives']" targetMapping="//@ownedViewpoints[name='Architecture']/@ownedRepresentations[name='Component%20Diagram']/@defaultLayer/@containerMappings[name='Module']/@subNodeMappings[name='Services']" targetFinderExpression="feature:dependencies">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_red']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
         <containerMappings name="Module" semanticCandidatesExpression="feature:modules" domainClass="angular.Module">
           <subNodeMappings name="Services" semanticCandidatesExpression="feature:moduleElements" domainClass="angular.NgService">
             <style xsi:type="style:SquareDescription" showIcon="false" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
             </style>
           </subNodeMappings>
           <subNodeMappings name="Controllers" semanticCandidatesExpression="feature:moduleElements" domainClass="angular.NgController">
@@ -285,10 +293,31 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="DependenciesEdge" edgeMappings="//@ownedViewpoints[name='Architecture']/@ownedRepresentations[name='Component%20Diagram']/@defaultLayer/@edgeMappings[name='Dependencies']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="dependencies" valueExpression="var:target"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="fr.univnantes.alma.angular.internal.services.NamingServices"/>
+  </ownedViewpoints>
+  <ownedViewpoints name="Review" modelFileExtension="xmi">
+    <ownedRepresentations xsi:type="description_2:EditionTableDescription" name="ESClass review" domainClass="angular.Module">
+      <ownedLineMappings name="ESClassLine" domainClass="angular.ESClass" semanticCandidatesExpression="feature:moduleElements"/>
+      <ownedColumnMappings name="ClassName" headerLabelExpression="Class name" featureName="name"/>
+      <ownedColumnMappings name="ClassFields" headerLabelExpression="Class fields" featureName="fields"/>
+      <ownedColumnMappings name="ClassFunctions" headerLabelExpression="Class functions" featureName="functions"/>
+      <ownedColumnMappings name="ClassAbstract" headerLabelExpression="Abstract class" featureName="abstract"/>
+      <ownedColumnMappings name="ClassExtends" headerLabelExpression="Class extends" featureName="extends"/>
+    </ownedRepresentations>
   </ownedViewpoints>
   <userColorsPalettes name="Default Colors">
     <entries xsi:type="description:UserFixedColor" red="210" green="228" blue="252" name="Default Class"/>
